@@ -2,16 +2,17 @@
 
 <robot name="udacity_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+	<!-- Not sure what this part is -->
 	<link name="robot_footprint"></link>
 
-
+	<!-- Joint from robot footprint to chassis -->
 	<joint name="robot_footprint_joint" type="fixed">
 		<origin xyz="0 0 0" rpy="0 0 0" />
 		<parent link="robot_footprint"/>
 		<child link="chassis" />
 	</joint>
 
-
+	<!-- The robot chassis -->
 	<link name="chassis">
 		<pose>0 0 0.1 0 0 0</pose>
 
@@ -68,7 +69,7 @@
 		</visual>
 	</link>
 
-
+	<!-- Robot left wheel -->
 	<link name="left_wheel">
 		<inertial>
 			<mass value="5"/>
@@ -95,7 +96,7 @@
 		</visual>
 	</link>
 
-
+	<!-- Robot right wheel -->
 	<link name="right_wheel">
 		<inertial>
 			<mass value="5"/>
@@ -122,7 +123,7 @@
 		</visual>
 	</link>
 
-
+	<!-- Joint connecting the left wheel to the chassis -->
 	<joint type="continuous" name="left_wheel_hinge">
 		<origin xyz="0 0.15 0" rpy="0 0 0"/>
 		<child link="left_wheel"/>
@@ -132,7 +133,7 @@
 		<dynamics damping="1.0" friction="1.0"/>
 	</joint>
 
-
+	<!-- Joint connecting the right wheel to the chassis -->
 	<joint type="continuous" name="right_wheel_hinge">
 		<origin xyz="0 -0.15 0" rpy="0 0 0"/>
 		<child link="right_wheel"/>
@@ -142,7 +143,7 @@
 		<dynamics damping="1.0" friction="1.0"/>
 	</joint>
 
-
+	<!-- Camera -->
 	<link name="camera">
 		<inertial>
 			<mass value="0.1"/>
@@ -169,10 +170,44 @@
 		</visual>
 	</link>
 
-	
+	<!-- Joint connecting the camera to the chassis -->
 	<joint type="fixed" name="camera_joint">
 		<origin xyz="0.2 0 0" rpy="0 0 0"/>
 		<parent link="chassis"/>
 		<child link="camera"/>
+	</joint>
+
+	<!-- Laser Range Finder -->
+	<link name="hokuyo">
+		<inertial>
+			<mass value="0.1"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<inertia
+				ixx="1e-6" ixy="0" ixz="0"
+				iyy="1e-6" iyz="0"
+				izz="1e-6"
+			/>
+		</inertial>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1"/>
+			</geometry>
+		</collision>
+		
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://udacity_bot/meshes/hokuyo.dae"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<!-- Joint connecting the  -->
+	<joint type="fixed" name="hokuyo_joint">
+		<origin xyz="0.15 0 0.1" rpy="0 0 0"/>
+		<parent link="chassis"/>
+		<child link="hokuyo"/>
 	</joint>
 </robot>
