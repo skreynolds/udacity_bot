@@ -5,6 +5,9 @@
 	<!-- Import the Gazebo plugin file (i.e. udacity_bot.gazebo) -->
 	<xacro:include filename="$(find udacity_bot)/urdf/udacity_bot.gazebo"/>
 
+	<!-- Import Rviz colors -->
+  	<xacro:include filename="$(find udacity_bot)/urdf/materials.xacro"/>
+
 	<!-- Not sure what this part is -->
 	<link name="robot_footprint"></link>
 
