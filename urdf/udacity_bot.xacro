@@ -159,14 +159,14 @@
 		</inertial>
 
 		<collision>
-			<origin xyz="" rpy=""/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.05"/>
 			</geometry>
 		</collision>
 
 		<visual>
-			<origin xyz="" rpy=""/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.05"/>
 			</geometry>
