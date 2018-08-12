@@ -17,8 +17,6 @@
 
 	<!-- The robot chassis -->
 	<link name="chassis">
-		<material name="blue"/>
-
 		<pose>0 0 0.1 0 0 0</pose>
 
 		<inertial>
@@ -43,6 +41,7 @@
 			<geometry>
 				<box size="0.4 0.2 0.1"/>
 			</geometry>
+			<material name="blue"/>
 		</visual>
 
 		<collision name='back_caster_collision'>
@@ -76,8 +75,6 @@
 
 	<!-- Robot left wheel -->
 	<link name="left_wheel">
-		<material name="green"/>
-
 		<inertial>
 			<mass value="5"/>
 			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
@@ -100,13 +97,12 @@
 			<geometry>
 				<cylinder radius="0.1" length="0.05"/>
 			</geometry>
+			<material name="green"/>
 		</visual>
 	</link>
 
 	<!-- Robot right wheel -->
 	<link name="right_wheel">
-		<material name="green"/>
-
 		<inertial>
 			<mass value="5"/>
 			<origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
@@ -129,6 +125,7 @@
 			<geometry>
 				<cylinder radius="0.1" length="0.05"/>
 			</geometry>
+			<material name="green"/>
 		</visual>
 	</link>
 
@@ -154,8 +151,6 @@
 
 	<!-- Camera -->
 	<link name="camera">
-		<material name="red"/>
-		
 		<inertial>
 			<mass value="0.1"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -178,6 +173,7 @@
 			<geometry>
 				<box size="0.05 0.05 0.05"/>
 			</geometry>
+			<material name="red"/>
 		</visual>
 	</link>
 
