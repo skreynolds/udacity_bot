@@ -3,4 +3,4 @@ TrajectoryPlannerROS:
   holonomic_robot: false
 
 controller_frequency: 10.0
-recovery_behaviour_enabled: false
+recovery_behaviour_enabled: true
